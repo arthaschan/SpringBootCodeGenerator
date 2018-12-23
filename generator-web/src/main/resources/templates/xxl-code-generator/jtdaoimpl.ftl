@@ -9,7 +9,7 @@ import java.util.List;
 * ${classInfo.classComment}
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
-@Repository
+@Service
 public class ${classInfo.className}DaoImpl implements I${classInfo.className}Dao{
 
     @Autowired

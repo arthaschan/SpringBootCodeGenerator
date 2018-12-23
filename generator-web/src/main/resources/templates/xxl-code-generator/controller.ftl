@@ -13,9 +13,10 @@ import java.util.Map;
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
 @Controller
+@RequestMapping(value = "/${classInfo.className?uncap_first}")
 public class ${classInfo.className}Controller {
 
-    @Resource
+    @Autowired
     private ${classInfo.className}Service ${classInfo.className?uncap_first}Service;
 
     /**
@@ -23,7 +24,7 @@ public class ${classInfo.className}Controller {
     */
     @RequestMapping("/insert")
     @ResponseBody
-    public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}){
+    public int insert(${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.insert(${classInfo.className?uncap_first});
     }
 
@@ -32,8 +33,8 @@ public class ${classInfo.className}Controller {
     */
     @RequestMapping("/delete")
     @ResponseBody
-    public ReturnT<String> delete(int id){
-        return ${classInfo.className?uncap_first}Service.delete(id);
+    public int delete(Map<String,String> map){
+        return ${classInfo.className?uncap_first}Service.delete(map);
     }
 
     /**
@@ -41,7 +42,7 @@ public class ${classInfo.className}Controller {
     */
     @RequestMapping("/update")
     @ResponseBody
-    public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first}){
+    public int update(${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.update(${classInfo.className?uncap_first});
     }
 
@@ -50,8 +51,8 @@ public class ${classInfo.className}Controller {
     */
     @RequestMapping("/load")
     @ResponseBody
-    public ReturnT<String> load(int id){
-        return ${classInfo.className?uncap_first}Service.load(id);
+    public ${classInfo.className} load(Map<String,String> map){
+        return ${classInfo.className?uncap_first}Service.load(map);
     }
 
     /**
@@ -64,4 +65,12 @@ public class ${classInfo.className}Controller {
         return ${classInfo.className?uncap_first}Service.pageList(offset, pagesize);
     }
 
+    /**
+    * List查询
+    */
+    @RequestMapping("/getList")
+    @ResponseBody
+    public ${classInfo.className} getList(Map<String,String> map){
+        return ${classInfo.className?uncap_first}Service.getList(map);
+    }
 }

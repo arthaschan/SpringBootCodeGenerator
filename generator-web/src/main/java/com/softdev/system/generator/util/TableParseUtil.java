@@ -174,6 +174,7 @@ public class TableParseUtil {
                     } else if (columnLine.contains("double")) {
                         fieldClass = Double.TYPE.getSimpleName();
                     } else if (columnLine.contains("datetime") || columnLine.contains("timestamp")) {
+                        //TODO 时间列的处理
                         fieldClass = Date.class.getSimpleName();
                     } else if (columnLine.contains("varchar") || columnLine.contains(" text")|| columnLine.contains("char")
                             || columnLine.contains("clob")||columnLine.contains("blob")||columnLine.contains("json")) {
@@ -181,26 +182,26 @@ public class TableParseUtil {
                     } else if (columnLine.contains("decimal")||columnLine.contains(" number")) {
                         //2018-11-22 lshz0088 建议对number类型增加int，long，BigDecimal的区分判断
                         //如果startKh大于等于0，则表示有设置取值范围
-                        int startKh=columnLine.indexOf("(");
-                        if(startKh>=0){
-                            int endKh=columnLine.indexOf(")",startKh);
-                            String[] fanwei=columnLine.substring(startKh+1,endKh).split("，");
-                            if("0".equals(fanwei[1])){
-                                //如果没有小数位数
-                                int length=Integer.valueOf(fanwei[0]);
-                                if(length<=9){
-                                    fieldClass = Integer.class.getSimpleName();
-                                }else{
-                                    fieldClass = Long.class.getSimpleName();
-                                }
-                            }else{
-                                //有小数位数一律使用BigDecimal
-                                fieldClass = BigDecimal.class.getSimpleName();
-                            }
-                        }else{
-                            fieldClass = BigDecimal.class.getSimpleName();
-                        }
-                    }else {
+//                        int startKh=columnLine.indexOf("(");
+//                        if(startKh>=0){
+//                            int endKh=columnLine.indexOf(")",startKh);
+//                            String[] fanwei=columnLine.substring(startKh+1,endKh).split("，");
+//                            if("0".equals(fanwei[0])){
+//                                //如果没有小数位数
+//                                int length=Integer.valueOf(fanwei[0]);
+//                                if(length<=9){
+//                                    fieldClass = Integer.class.getSimpleName();
+//                                }else{
+//                                    fieldClass = Long.class.getSimpleName();
+//                                }
+//                            }else{
+//                                //有小数位数一律使用BigDecimal
+//                                fieldClass = BigDecimal.class.getSimpleName();
+//                            }
+//                        }else{
+//                            fieldClass = BigDecimal.class.getSimpleName();
+//                        }
+//                    }else {
                         fieldClass = String.class.getSimpleName();
                     }
 

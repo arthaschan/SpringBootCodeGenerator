@@ -109,7 +109,7 @@ CREATE TABLE `userinfo` (
             <div class="btn-group mr-2" role="group" aria-label="First group">
                 <button type="button" class="btn btn-default" id="model">model(set/get)</button>
                 <button type="button" class="btn btn-default" id="mybatis">mybatis</button>
-                <button type="button" class="btn btn-default" id="dao">dao</button>
+                <button type="button" class="btn btn-default" id="dao">mapper</button>
                 <button type="button" class="btn btn-default" id="service">service</button>
                 <button type="button" class="btn btn-default" id="service_impl">service_impl</button>
                 <button type="button" class="btn btn-default" id="controller">controller</button>

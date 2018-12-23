@@ -38,9 +38,9 @@ public class IndexController {
     @ResponseBody
     public ReturnT<Map<String, String>> codeGenerate(String tableSql,String authorName,String packageName) {
 
-        if(StringUtils.isBlank(authorName)) authorName="大狼狗";
+        if(StringUtils.isBlank(authorName)) authorName="arthas";
 
-        if(StringUtils.isBlank(packageName)) packageName="com.softdev.system";
+        if(StringUtils.isBlank(packageName)) packageName="com.szatc.ibatis";
 
         try {
 
@@ -63,7 +63,7 @@ public class IndexController {
             result.put("controller", freemarkerTool.processString("xxl-code-generator/controller.ftl", params));
             result.put("service", freemarkerTool.processString("xxl-code-generator/service.ftl", params));
             result.put("service_impl", freemarkerTool.processString("xxl-code-generator/service_impl.ftl", params));
-            result.put("dao", freemarkerTool.processString("xxl-code-generator/dao.ftl", params));
+            result.put("dao", freemarkerTool.processString("xxl-code-generator/mapper.ftl", params));
             result.put("mybatis", freemarkerTool.processString("xxl-code-generator/mybatis.ftl", params));
             result.put("model", freemarkerTool.processString("xxl-code-generator/model.ftl", params));
 

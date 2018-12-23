@@ -5,16 +5,16 @@ import java.util.List;
 * ${classInfo.classComment}
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
-public interface IAccountDAO {
+public interface I${classInfo.classComment}DAO {
 
-    int add(${classInfo.classComment} ${classInfo.className?uncap_first});
+    int add(${classInfo.className} ${classInfo.className?uncap_first});
 
-    int update(${classInfo.classComment} ${classInfo.className?uncap_first});
+    int update(${classInfo.className} ${classInfo.className?uncap_first});
 
     int delete(int id);
 
-    ${classInfo.classComment} findById(int id);
+    ${classInfo.className} findById(int id);
 
-    List<${classInfo.classComment}> findAllList(Map<String,Object> param);
+    List<${classInfo.className}> findAllList(Map<String,Object> param);
 
 }

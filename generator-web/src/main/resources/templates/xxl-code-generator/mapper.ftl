@@ -1,14 +1,14 @@
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
-
+import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 /**
 * ${classInfo.classComment}
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
-@Component
-public interface ${classInfo.className}Dao {
+@Mapper
+public interface ${classInfo.className}Mapper {
 
     /**
     * 新增
@@ -18,7 +18,7 @@ public interface ${classInfo.className}Dao {
     /**
     * 删除
     */
-    public int delete(@Param("id") int id);
+    public int delete(Map<String,String>map);
 
     /**
     * 更新
@@ -28,7 +28,7 @@ public interface ${classInfo.className}Dao {
     /**
     * Load查询
     */
-    public ${classInfo.className} load(@Param("id") int id);
+    public ${classInfo.className} load(Map<String,String > map);
 
     /**
     * 分页查询Data
@@ -42,4 +42,9 @@ public interface ${classInfo.className}Dao {
     public int pageListCount(@Param("offset") int offset,
                              @Param("pagesize") int pagesize);
 
+
+    /**
+    *批量获取数据
+    */
+    List<${classInfo.className}> getList(Map<String,String>map) ;
 }
